@@ -1,0 +1,17 @@
+FUNCIONES SOBRE: abrir sobre, confirmar sobre (incrementar 1 a todas las figuritas que tocaron). tiene 5 figuritas aleatoreas, si sale alguna repetida incrementa uno a 
+la figurita correspondiente
+VIEW: Vos abrís un sobre y el sistema te muestra las figuritas que obtuviste. Luego, tenés que confirmar para guardarlas en tu colección.
+
+FUNCIONES ALBUM: visualizar album, ver cual figus tienen  y cuales faltan, ver progreso,  Ver coleccion de figus,
+ver repetidas (total - 1)(0 es que no esta, 1 esta solo pegada)
+VIEW: En el álbum, vos ves todas las figuritas: las que ya tenés en tu colección y las que todavía te faltan.
+Cada figurita muestra su imagen y algunos datos básicos del jugador, devolver randoms para el sobre
+
+FIGURITAS: 
+INFORMACION:  FiguritaUsuario tiene un Id, un JugadorId que la relaciona con el jugador
+correspondiente, y una Cantidad que indica cuántas figuritas de ese jugador tenés en tu colección.
+
+JUGADOR:  Jugador tiene varios datos asociados, como su Id, Nombre, Posición, NúmeroCamiseta, 
+y también está relacionado con una Selección
+
+SELECCION: una Selección tiene un Id, un Nombre, un Grupo y un País.
