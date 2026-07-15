@@ -15,21 +15,28 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        Album album = new Album();
-        ViewBag.figusTotales = album.total;
+        BD bd = new BD();
+        ViewBag.figuritas = bd.figuritas();
         return View();
     }
-    public IActionResult FigusTocaron()
+    public IActionResult SobreAbierto()
     {
-        Sobre sobre = new Sobre();
-        ViewBag.tocaron = sobre.abrirSobre();
-        sobre.confirmarSobre();
+        BD bd = new BD();
+        ViewBag.figuritas = bd.sobre();
         return View();
     }
 
-    public IActionResult sobre()
+    public IActionResult Sobre()
     {
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult Confirmar(List<int> figuritaId)
+    {
+        BD bd = new BD();
+        bd.confirmarSobre(figuritaId);
+        return RedirectToAction("Index");
     }
 
     public IActionResult Privacy()

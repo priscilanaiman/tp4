@@ -7,50 +7,70 @@ public class BD
    
     public BD()
     {
-        _connectionString = @"Server=localhost; DataBase = Album De Figuritas; Integrated Security=True; TrustServerCertificate=True;";
+        //_connectionString = @"Server=localhost; DataBase = Album De Figuritas; Integrated Security=True; TrustServerCertificate=True;";
+        _connectionString = @"Server=.\SQLEXPRESS;Database=Album De Figuritas;Integrated Security=True;TrustServerCertificate=True;";
     }
 
-    public List<Figurita> figusTotal()
+    public List<Figurita> figuritas()
     {
-        List<Figurita> figurita = new List<Figurita>();
+        List<Figurita> figuritas = new List<Figurita>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT * FROM FiguritaUsuario";
-            figurita = connection.Query<Figurita>(query).ToList();
+            string query = "SELECT * FROM FiguritaUsuario ORDER BY ID";
+            figuritas = connection.Query<Figurita>(query).ToList();
         }
-        return figurita;
+        return figuritas;
     }
 
-        public List<Seleccion> seleccion()
+    public List<Figurita> sobre()
     {
-        List<Seleccion> seleccion = new List<Seleccion>();
-        using (SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            string query = "SELECT * FROM SELECCION";
-            seleccion = connection.Query<Seleccion>(query).ToList();
-        }
-        return seleccion;
+        Random random = new Random();
+        return figuritas().OrderBy(x => random.Next()).Take(5).ToList();
     }
 
-        public List<Jugador> jugadores()
+    public void confirmarSobre(List<int> figuritaIds)
     {
-        List<Jugador> jugadores = new List<Jugador>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT * FROM JUGADOR";
-            jugadores = connection.Query<Jugador>(query).ToList();
-        }
-        return jugadores;
+            foreach (int id in figuritaIds)
+            {
+                string query = "UPDATE FiguritaUsuario SET CANTIDAD = CANTIDAD + 1 WHERE ID = @Id";
+                connection.Execute(query, new { Id = id });
+            }
+         }
     }
-     public Figurita SumarCantFigu()
-    {
-        Figurita figurita = new Figurita();
-        using (SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            string query = "UPDATE FiguritaUsuario SET CANTIDAD + CANTIDAD = 1";
-            figurita = connection.Query<Figurita>(query);
-        }
-            return figurita;
-    }
+
+    // public List<Seleccion> seleccion()
+    // {
+    //     List<Seleccion> seleccion = new List<Seleccion>();
+    //     using (SqlConnection connection = new SqlConnection(_connectionString))
+    //     {
+    //         string query = "SELECT * FROM SELECCION";
+    //         seleccion = connection.Query<Seleccion>(query).ToList();
+    //     }
+    //     return seleccion;
+    // }
+
+    // public List<Jugador> jugadores()
+    // {
+    //     List<Jugador> jugadores = new List<Jugador>();
+    //     using (SqlConnection connection = new SqlConnection(_connectionString))
+    //     {
+    //         string query = "SELECT * FROM JUGADOR";
+    //         jugadores = connection.Query<Jugador>(query).ToList();
+    //     }
+    //     return jugadores;
+    // }
+
+    // public Figurita SumarCantFigu()
+    // {
+    //     Figurita figurita = new Figurita();
+    //     using (SqlConnection connection = new SqlConnection(_connectionString))
+    //     {
+    //         string query = "UPDATE FiguritaUsuario SET CANTIDAD + CANTIDAD = 1";
+    //         //figurita = connection.Query<Figurita>(query);
+    //     }
+    //         return figurita;
+    // }
 
 }

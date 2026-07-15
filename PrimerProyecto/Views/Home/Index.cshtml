@@ -7,11 +7,11 @@
 </head>
 <body>
     <h1>Album de figuritas</h1>
-    @foreach(Figurita figu in ViewBag.figusTotales)
+    @foreach(Figurita figurita in ViewBag.figuritas)
     {
-        if(figu.Cantidad > 1)
+        if (figurita.Cantidad >= 1)
         {
-            <img src="figu.Imagen">
+            <img src="@figurita.Imagen" alt="Figurita" />
         }
         else
         {
@@ -19,6 +19,6 @@
         }
     }
     <br>
-    <a class="boton" href='@Url.Action("sobre", "Home")'>Abrir Sobres </a>
+    <a class="boton" href='@Url.Action("Sobre", "Home")'>Abrir Sobre</a>
 </body>
 </html>
