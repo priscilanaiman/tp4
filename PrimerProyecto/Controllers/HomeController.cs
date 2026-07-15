@@ -16,7 +16,15 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         BD bd = new BD();
-        ViewBag.figuritas = bd.figuritas();
+        int cantFiguritasObtenidas = 0;
+        List<Figurita> figuritas = bd.figuritas();
+        ViewBag.figuritas = figuritas;
+        foreach(Figurita figurita in figuritas)
+        if (figurita.Cantidad >= 1)
+        {
+            cantFiguritasObtenidas += 1;
+        }
+        ViewBag.porcentaje = cantFiguritasObtenidas * 100 / figuritas.Count;
         return View();
     }
     public IActionResult SobreAbierto()
