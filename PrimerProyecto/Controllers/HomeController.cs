@@ -33,7 +33,6 @@ public class HomeController : Controller
         ViewBag.figuritas = bd.sobre();
         return View();
     }
-
     public IActionResult Sobre()
     {
         return View();
@@ -52,7 +51,13 @@ public class HomeController : Controller
         bd.confirmarSobre(figuritaId);
         return RedirectToAction("Index");
     }
-
+    public IActionResult Repetidas()
+    {
+        BD bd = new BD();
+        List<Figurita> repetidas = bd.repetidas();
+        ViewBag.repetidas = repetidas;
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();

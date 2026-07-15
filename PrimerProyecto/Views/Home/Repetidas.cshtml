@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetidas</title>
+</head>
+<body>
+    <h1>Figuritas Repetidas</h1>
+    @foreach(Figurita figurita in ViewBag.repetidas)
+    {
+        <img src="@figurita.Imagen" alt="Figurita" />
+        <p>Cantidad: @figurita.Cantidad</p>
+    }
+    <br>
+    <a class="boton" href='@Url.Action("Index", "Home")'>Volver al Album</a>
+</body>
+</html>
