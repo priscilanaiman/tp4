@@ -7,8 +7,8 @@ public class BD
    
     public BD()
     {
-        //_connectionString = @"Server=localhost; DataBase = Album De Figuritas; Integrated Security=True; TrustServerCertificate=True;";
-        _connectionString = @"Server=.\SQLEXPRESS;Database=Album De Figuritas;Integrated Security=True;TrustServerCertificate=True;";
+        _connectionString = @"Server=localhost; DataBase = Album De Figuritas; Integrated Security=True; TrustServerCertificate=True;";
+        //_connectionString = @"Server=.\SQLEXPRESS;Database=Album De Figuritas;Integrated Security=True;TrustServerCertificate=True;";
     }
     public void reiniciarAlbum()
     {
