@@ -42,22 +42,35 @@ h1, h2{
   margin-left: 35%;
 }
 .boton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    margin: 0.5%;
-    margin-left: 45%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin: 0.5%;
+  margin-left: 45%;
+  width: 180px;
+  text-align: center;
+  border: none;
 }
 
 .boton:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .boton:active {
-    background-color: #004494;
+  background-color: #004494;
+}
+.rojo{
+  background-color: #cd0a0a;
+}
+.rojo:hover {
+  background-color: #b70909;
+}
+
+.rojo:active {
+  background-color: #880606;
 }

@@ -10,6 +10,14 @@ public class BD
         //_connectionString = @"Server=localhost; DataBase = Album De Figuritas; Integrated Security=True; TrustServerCertificate=True;";
         _connectionString = @"Server=.\SQLEXPRESS;Database=Album De Figuritas;Integrated Security=True;TrustServerCertificate=True;";
     }
+    public void reiniciarAlbum()
+    {
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "UPDATE FiguritaUsuario SET CANTIDAD = 0";
+            connection.Execute(query);
+        }
+    }
 
     public List<Figurita> figuritas()
     {

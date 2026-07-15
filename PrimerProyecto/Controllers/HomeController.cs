@@ -30,6 +30,12 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult ReiniciarAlbum()
+    {
+        BD bd = new BD();
+        bd.reiniciarAlbum();
+        return RedirectToAction("Index");
+    }
 
     [HttpPost]
     public IActionResult Confirmar(List<int> figuritaId)
